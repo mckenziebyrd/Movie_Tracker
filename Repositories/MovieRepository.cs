@@ -59,6 +59,49 @@ namespace Movie_Tracker.Repositories
 
         }
 
+        public Movie GetMovieById(int Id)
+        {
+            using (SqlConnection conn = Connection)
+            {
+                conn.Open();
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                                SELECT *
+                                FROM movie
+                                WHERE Id = @Id
+                            ";
+                    cmd.Parameters.AddWithValue("@Id", Id);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                       if (reader.Read()) 
+                        {
+                            Movie movie = new Movie()
+                            {
+                                Id = reader.GetInt32(reader.GetOrdinal("Id")),
+                                UserId = reader.GetInt32(reader.GetOrdinal("userId")),
+                                Title = reader.GetString(reader.GetOrdinal("title")),
+                                Year = reader.GetInt32(reader.GetOrdinal("year")),
+                                Watched = reader.GetBoolean(reader.GetOrdinal("watched")),
+                                Favorite = reader.GetBoolean(reader.GetOrdinal("favorite")),
+                                Comments = reader.GetString(reader.GetOrdinal("comments")),
+                                Poster = reader.GetString(reader.GetOrdinal("poster"))
+
+                            };
+
+                            return movie;
+                        }
+                        else
+                        {
+                            return null;
+                        }
+                    }
+                }
+            }
+
+        }
+
         public List<Movie> GetFavorites()
         {
             using (SqlConnection conn = Connection)
