@@ -1,3 +1,4 @@
+using Movie_Tracker;
 using Movie_Tracker.Interfaces;
 using Movie_Tracker.Repositories;
 
@@ -11,6 +12,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<IUserRepository, UserRepository>();
 builder.Services.AddTransient<IMovieRepository, MovieRepository>();
+builder.Services.AddHttpClient<IMovieService, MovieService>();
 
 var app = builder.Build();
 
