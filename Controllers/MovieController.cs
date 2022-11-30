@@ -60,10 +60,13 @@ namespace Movie_Tracker.Controllers
         {
         }
 
+     
+
         // DELETE api/<MovieController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete("deleteMovie/{Id}/{UserId}")]
+        public void Delete(int Id, int UserId)
         {
+            _movieRepository.DeleteMovie(Id, UserId);
         }
     }
 }

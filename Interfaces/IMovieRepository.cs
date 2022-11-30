@@ -8,5 +8,6 @@ namespace Movie_Tracker.Interfaces
         List<Movie> GetFavorites();
         List<Movie> GetWatched();
         List<Movie> GetUnwatched();
+        void DeleteMovie(int Id, int UserId);
     }
 }
