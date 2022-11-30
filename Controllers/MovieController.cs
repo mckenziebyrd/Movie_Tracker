@@ -24,6 +24,12 @@ namespace Movie_Tracker.Controllers
             return returnVar;
         }
 
+        [HttpGet("favorite")]
+        public List<Movie> GetFavorites()
+        {
+            return _movieRepository.GetFavorites();
+        }
+
         // GET api/<MovieController>/5
         [HttpGet("{id}")]
         public string Get(int id)
