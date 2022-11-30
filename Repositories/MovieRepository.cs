@@ -170,5 +170,26 @@ namespace Movie_Tracker.Repositories
             }
 
         }
+
+        public void DeleteMovie(int Id, int UserId)
+        {
+            using (SqlConnection conn = Connection)
+            {
+                conn.Open();
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                                DELETE FROM [movie]
+                                WHERE Id = @Id
+                                AND UserId = @Userid
+                            ";
+
+                    cmd.Parameters.AddWithValue("@Id", Id);
+                    cmd.Parameters.AddWithValue("@Userid", UserId);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }
