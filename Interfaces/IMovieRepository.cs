@@ -6,5 +6,7 @@ namespace Movie_Tracker.Interfaces
     {
         List<Movie> GetAllMovies();
         List<Movie> GetFavorites();
+        List<Movie> GetWatched();
+        List<Movie> GetUnwatched();
     }
 }

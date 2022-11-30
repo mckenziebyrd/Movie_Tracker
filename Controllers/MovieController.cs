@@ -30,6 +30,17 @@ namespace Movie_Tracker.Controllers
             return _movieRepository.GetFavorites();
         }
 
+        [HttpGet("watched")]
+        public List<Movie> GetWatched()
+        {
+            return _movieRepository.GetWatched();
+        }
+
+        [HttpGet("unwatched")]
+        public List<Movie> GetUnwatched()
+        {
+            return _movieRepository.GetUnwatched();
+        }
         // GET api/<MovieController>/5
         [HttpGet("{id}")]
         public string Get(int id)
