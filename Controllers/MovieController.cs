@@ -11,17 +11,30 @@ namespace Movie_Tracker.Controllers
     [ApiController]
     public class MovieController : ControllerBase
     {
+        private readonly ILogger<MovieController> _logger;
+        private IMovieService _movieService;
         private IMovieRepository _movieRepository;
-        public MovieController(IMovieRepository movieRepository)
+        public MovieController(IMovieRepository movieRepository, ILogger<MovieController> logger, IMovieService movieService)
         {
             _movieRepository = movieRepository;
+            _logger = logger;
+            _movieService = movieService;
         }
+
+
         // GET: api/<MovieController>
         [HttpGet]
         public List<Movie> Get()
         {
             var returnVar = _movieRepository.GetAllMovies();
             return returnVar;
+        }
+
+
+        [HttpGet("externalAPI")]
+        public async Task<string> GetExternalAPI(string movieTitle)
+        {
+            return await _movieService.GetExternalAPI(movieTitle);
         }
 
         [HttpGet("favorite")]
