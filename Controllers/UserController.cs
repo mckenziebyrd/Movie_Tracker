@@ -30,11 +30,5 @@ namespace Movie_Tracker.Controllers
                 Console.WriteLine(ex);
             }
         }
-
-        // DELETE api/<UserController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }
