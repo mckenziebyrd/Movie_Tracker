@@ -214,6 +214,47 @@ namespace Movie_Tracker.Repositories
 
         }
 
+        public void AddMovie(Movie movie)
+        {
+            using (SqlConnection conn = Connection)
+            {
+                conn.Open();
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                               INSERT INTO movie (
+                                    UserId,   
+                                    Title,
+                                    Year,
+                                    Watched,
+                                    Favorite,
+                                    Comments,
+                                    Poster)
+                              OUTPUT INSERTED.ID
+                              VALUES (
+                                    @UserId,
+                                    @Title,
+                                    @Year,
+                                    @Watched, 
+                                    @Favorite,
+                                    @Comments,
+                                    @Poster)
+                            ";
+                    cmd.Parameters.AddWithValue("@UserId", movie.UserId);
+                    cmd.Parameters.AddWithValue("@Title", movie.Title);
+                    cmd.Parameters.AddWithValue("@Year", movie.Year);
+                    cmd.Parameters.AddWithValue("@Watched", movie.Watched);
+                    cmd.Parameters.AddWithValue("@Favorite", movie.Favorite);
+                    cmd.Parameters.AddWithValue("@Comments", movie.Comments);
+                    cmd.Parameters.AddWithValue("@Poster", movie.Poster);
+
+                    int Id = (int)cmd.ExecuteScalar();
+                    movie.Id = Id;
+
+                }
+            }
+        }
+
         public int EditMovie(int Id, Movie movie)
         {
             using (SqlConnection conn = Connection)
