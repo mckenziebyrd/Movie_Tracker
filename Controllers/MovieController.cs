@@ -24,7 +24,7 @@ namespace Movie_Tracker.Controllers
             return returnVar;
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{Id}")]
         public Movie Get(int Id)
         {
             return _movieRepository.GetMovieById(Id);
