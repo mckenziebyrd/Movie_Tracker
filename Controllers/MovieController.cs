@@ -31,6 +31,12 @@ namespace Movie_Tracker.Controllers
         }
 
 
+        [HttpGet("{Id}")]
+        public Movie Get(int Id)
+        {
+            return _movieRepository.GetMovieById(Id);
+        }
+
         [HttpGet("externalAPI")]
         public async Task<string> GetExternalAPI(string movieTitle)
         {
@@ -54,27 +60,7 @@ namespace Movie_Tracker.Controllers
         {
             return _movieRepository.GetUnwatched();
         }
-        // GET api/<MovieController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/<MovieController>
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/<MovieController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-     
-
+        
         // DELETE api/<MovieController>/5
         [HttpDelete("deleteMovie/{Id}/{UserId}")]
         public void Delete(int Id, int UserId)
