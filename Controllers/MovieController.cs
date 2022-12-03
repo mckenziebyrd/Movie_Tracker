@@ -61,6 +61,13 @@ namespace Movie_Tracker.Controllers
             return _movieRepository.GetUnwatched();
         }
 
+        [HttpPost]
+        public void Post(Movie movie)
+        {
+             _movieRepository.AddMovie(movie);
+        }
+        
+
         [HttpPut("{Id}")]
         public IActionResult Edit(int Id, Movie movie)
         {
