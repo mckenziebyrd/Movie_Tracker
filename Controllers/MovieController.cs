@@ -60,6 +60,19 @@ namespace Movie_Tracker.Controllers
         {
             return _movieRepository.GetUnwatched();
         }
+
+        [HttpPut("{Id}")]
+        public IActionResult Edit(int Id, Movie movie)
+        {
+            int MovieToUpdate = _movieRepository.EditMovie(Id, movie);
+
+            if (MovieToUpdate <= 0) 
+            {
+                return BadRequest("Movie doesnt exist");
+            }
+            return Ok();
+
+        }
         
         // DELETE api/<MovieController>/5
         [HttpDelete("deleteMovie/{Id}/{UserId}")]
