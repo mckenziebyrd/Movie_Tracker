@@ -6,7 +6,6 @@ import Home from './components/Pages/Home';
 import NeedToWatch from './components/Pages/NeedToWatch';
 import WatchList from './components/Pages/WatchList';
 import Search from './components/Pages/Search';
-import "bootstrap/dist/css/bootstrap.min.css"
 import './App.css'
 import { useEffect, useState } from 'react';
 
@@ -31,7 +30,7 @@ useEffect(() => {
 
 
   return (
-    <div className='container-fluid'>
+    <div>
     <Router>
       <Navbar />
       <Routes>
