@@ -1,5 +1,6 @@
 import React ,{useState}from 'react'
 import './MovieList.css'
+import {AiFillHeart} from 'react-icons/ai'
 
 function MovieList(props) {
    const favoriteComponent = props.favoriteComponent
@@ -9,7 +10,8 @@ function MovieList(props) {
         <div className='image-container'>
             <img src={movie.Poster} key={movie}></img>
             <div className='overlay'>
-                <favoriteComponent />
+                <span>Add to Favorites</span>
+                <AiFillHeart />
             </div>
         </div>
         ))}
