@@ -1,12 +1,5 @@
-body {
-  background: rgb(109, 103, 103);
+* {
   color: white;
   font-family: 'Lato', sans-serif;
 };
-
-.movie-app{
-  background: pink;
-  overflow-x: auto;
-  flex-wrap:nowrap;
-}
 

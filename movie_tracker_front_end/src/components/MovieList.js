@@ -1,6 +1,5 @@
 import React ,{useState}from 'react'
 import './MovieList.css'
-import {AiFillHeart} from 'react-icons/ai'
 
 function MovieList(props) {
  
@@ -12,8 +11,8 @@ function MovieList(props) {
             <div 
             className='overlay'
            >
-                <p>Add to Favorites</p>
-                <AiFillHeart />
+                <p>Add to Library</p>
+                
             </div>
         </div>
         ))}

@@ -5,7 +5,7 @@ import {MdMenuBook} from "react-icons/md"
 export const SidebarData = [
   {
     title: 'HOME',
-    path: './home',
+    path: './',
     icon: <MdMenuBook />,
     className: 'nav-text'
   },

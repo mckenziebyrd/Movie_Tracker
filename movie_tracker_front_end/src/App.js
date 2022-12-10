@@ -39,11 +39,11 @@ const AddFavoriteMovie = (movie) => {
     <Router>
       <Navbar />
       <Routes>
-      <Route exact path='/home' element={<Home searchValue={searchValue} setSearchValue={setSearchValue} movies={movies} />}/>
+      <Route exact path='/' element={<Home searchValue={searchValue} setSearchValue={setSearchValue} movies={movies} />}/>
         <Route path='/favorites' element={<Favorites />}/>
         <Route path='/needToWatch' element={<NeedToWatch />}/>
         <Route path='/watchList' element={<WatchList />}/>
-        <Route path='/search' element={<Search />}/>
+        <Route path='/search' element={<Search searchValue={searchValue} setSearchValue={setSearchValue} movies={movies}/>}/>
         
       </Routes>
     </Router>

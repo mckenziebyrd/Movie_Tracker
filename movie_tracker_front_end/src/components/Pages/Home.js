@@ -1,6 +1,5 @@
 import React from 'react'
 import MovieList from '../MovieList'
-import MovieListHeading from '../MovieListHeading'
 import SearchBox from '../SearchBox'
 import './Pages.css'
 

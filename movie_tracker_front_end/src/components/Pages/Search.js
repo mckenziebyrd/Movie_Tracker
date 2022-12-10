@@ -1,8 +1,18 @@
 import React from 'react'
+import MovieList from '../MovieList'
+import SearchBox from '../SearchBox'
+import './Pages.css'
 
-function Search() {
+function Search({movies, searchValue, setSearchValue,}) {
   return (
-    <div><h1>TEST</h1></div>
+    <div className='movie-app'>
+    <h1>MOVIE LIBRARY HOME</h1>
+    <SearchBox searchValue={searchValue} setSearchValue={setSearchValue}/>
+    <div className='row'>
+       <MovieList movies={movies} />  
+    </div>
+   
+</div>
   )
 }
 
