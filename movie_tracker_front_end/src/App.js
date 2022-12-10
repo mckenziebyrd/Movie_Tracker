@@ -11,6 +11,7 @@ import { useEffect, useState } from 'react';
 
 function App() {
   const [movies, setMovies] =useState([]);
+  const [favorites, setFavorites] = useState([]);
   const [searchValue, setSearchValue] =useState('');
     
     const getMovieRequest = async (searchValue) => {
@@ -28,6 +29,10 @@ useEffect(() => {
     getMovieRequest(searchValue);
 }, [searchValue])
 
+const AddFavoriteMovie = (movie) => {
+  const newFavoriteList = [...favorites, movie];
+  setFavorites(newFavoriteList)
+}
 
   return (
     <div>
