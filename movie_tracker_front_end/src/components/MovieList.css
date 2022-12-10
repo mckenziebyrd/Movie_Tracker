@@ -1,12 +1,11 @@
 .image-container {
-    position: relative;
     transition: transform 0.2s;
     margin: 15px;
   }
   
   .image-container:hover {
     cursor: pointer;
-    transform: scale(1.05);
+    transform: scale(1.009);
   }
   
   .image-container:hover .overlay {
