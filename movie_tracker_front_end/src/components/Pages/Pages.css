@@ -1,0 +1,14 @@
+
+  .movie-app{
+    display: flex;
+    flex-direction: column;
+    background: pink;
+    overflow-x: auto;
+    flex-wrap:nowrap;
+  }
+  
+  .row {
+    background: blue;
+    display: flex;
+    flex-direction: row;
+  }

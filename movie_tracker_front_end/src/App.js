@@ -6,12 +6,12 @@ import Home from './components/Pages/Home';
 import NeedToWatch from './components/Pages/NeedToWatch';
 import WatchList from './components/Pages/WatchList';
 import Search from './components/Pages/Search';
-import "bootstrap/dist/css/bootstrap.min.css"
 import './App.css'
 import { useEffect, useState } from 'react';
 
 function App() {
   const [movies, setMovies] =useState([]);
+  const [favorites, setFavorites] = useState([]);
   const [searchValue, setSearchValue] =useState('');
     
     const getMovieRequest = async (searchValue) => {
@@ -29,9 +29,13 @@ useEffect(() => {
     getMovieRequest(searchValue);
 }, [searchValue])
 
+const AddFavoriteMovie = (movie) => {
+  const newFavoriteList = [...favorites, movie];
+  setFavorites(newFavoriteList)
+}
 
   return (
-    <div className='container-fluid'>
+    <div>
     <Router>
       <Navbar />
       <Routes>
