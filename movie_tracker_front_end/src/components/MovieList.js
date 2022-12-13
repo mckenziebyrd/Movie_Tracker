@@ -6,10 +6,12 @@ function MovieList(props) {
   return (
     <>
         {props.movies.map((movie, index)=> (
-        <div className='image-container'>
+        <div 
+        className='image-container'>
             <img src={movie.Poster} key={movie}></img>
             <div 
             className='overlay'
+            onClick={console.log(movie)}
            >
                 <p>Add to Library</p>
                 
