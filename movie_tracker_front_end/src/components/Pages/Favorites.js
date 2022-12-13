@@ -38,6 +38,11 @@ function Favorites() {
               return (
                 <div className='movie-container'>
                     <img src={movie.poster} alt='movie poster'></img>
+                    <h2>TITLE : {movie.title}</h2>
+                    <h3>YEAR : {movie.year}</h3>
+                    <p>COMMENTS : {movie.comments}</p>
+                   <p>{movie.watched == 1 ? "WATCHED" : "NOT WATCHED YET"}</p>
+                    <p>{movie.favorite == 1 ? "FAVORITE" : ""}</p>
                 </div>
               )
             })}
