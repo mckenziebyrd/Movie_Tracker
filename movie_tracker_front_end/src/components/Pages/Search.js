@@ -4,6 +4,7 @@ import SearchBox from '../SearchBox'
 import './Pages.css'
 
 function Search({movies, searchValue, setSearchValue,}) {
+  
   return (
     <div className='movie-app'>
     <h1>MOVIE LIBRARY HOME</h1>

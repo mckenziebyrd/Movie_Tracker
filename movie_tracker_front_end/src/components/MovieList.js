@@ -2,16 +2,19 @@ import React ,{useState}from 'react'
 import './MovieList.css'
 
 function MovieList(props) {
- 
+
+
   return (
     <>
         {props.movies.map((movie, index)=> (
         <div className='image-container'>
             <img src={movie.Poster} key={movie}></img>
             <div 
+           
             className='overlay'
+            
            >
-                <p>Add to Library</p>
+                <button>Add to Library</button>
                 
             </div>
         </div>

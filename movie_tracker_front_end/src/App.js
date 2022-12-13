@@ -8,10 +8,11 @@ import WatchList from './components/Pages/WatchList';
 import Search from './components/Pages/Search';
 import './App.css'
 import { useEffect, useState } from 'react';
+import EditMovie from './components/EditMovie';
 
 function App() {
   const [movies, setMovies] =useState([]);
-  const [favorites, setFavorites] = useState([]);
+  const [movieAdd, setMovieAdd] = useState([]);
   const [searchValue, setSearchValue] =useState('');
     
     const getMovieRequest = async (searchValue) => {
@@ -29,9 +30,9 @@ useEffect(() => {
     getMovieRequest(searchValue);
 }, [searchValue])
 
-const AddFavoriteMovie = (movie) => {
-  const newFavoriteList = [...favorites, movie];
-  setFavorites(newFavoriteList)
+const AddMovieToLibrary = (movie) => {
+  const newLibraryList = [...movieAdd, movie];
+  setMovieAdd(newLibraryList)
 }
 
   return (
@@ -39,11 +40,12 @@ const AddFavoriteMovie = (movie) => {
     <Router>
       <Navbar />
       <Routes>
-      <Route exact path='/' element={<Home searchValue={searchValue} setSearchValue={setSearchValue} movies={movies} />}/>
-        <Route path='/favorites' element={<Favorites />}/>
-        <Route path='/needToWatch' element={<NeedToWatch />}/>
-        <Route path='/watchList' element={<WatchList />}/>
-        <Route path='/search' element={<Search searchValue={searchValue} setSearchValue={setSearchValue} movies={movies}/>}/>
+      <Route exact path='/' element={<Home />}/>
+      <Route path='/movie/:movieId(\d+)' element={<EditMovie />} />
+        <Route exact path='/favorites' element={<Favorites />}/>
+        <Route exact path='/needToWatch' element={<NeedToWatch />}/>
+        <Route exact path='/watchList' element={<WatchList />}/>
+        <Route exact path='/search' element={<Search searchValue={searchValue} setSearchValue={setSearchValue} movies={movies} handleAddToLibraryClick={AddMovieToLibrary}/>}/>
         
       </Routes>
     </Router>

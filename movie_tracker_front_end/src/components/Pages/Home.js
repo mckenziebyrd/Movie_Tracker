@@ -1,9 +1,8 @@
 import React  from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
-import EditMovie from '../EditMovie';
-
 import './Pages.css'
+import { Link } from 'react-router-dom'
 
 
 function Home() {
@@ -27,7 +26,7 @@ function Home() {
       });
   }, []);
 
- console.log(MovieLibrary)
+
 
   return (
    <>
@@ -44,7 +43,7 @@ function Home() {
                     <p>COMMENTS : {movie.comments}</p>
                    <p>{movie.watched == 1 ? "WATCHED" : "NOT WATCHED YET"}</p>
                     <p>{movie.favorite == 1 ? "FAVORITE" : ""}</p>
-                    <button onClick={EditMovie}>EDIT</button>
+                    <Link to={`/home/${movie.id}`}>EDIT</Link>
                 </div>
               )
             })}
