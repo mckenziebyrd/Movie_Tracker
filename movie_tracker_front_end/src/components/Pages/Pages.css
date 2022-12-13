@@ -16,11 +16,12 @@ body {
 
   .movie-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     background: black;
     justify-content: space-around;
     transition: transform 0.2s;
     margin: 15px;
+
   }
 
   .movie-container:hover {
