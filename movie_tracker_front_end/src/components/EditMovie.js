@@ -11,6 +11,8 @@ function EditMovie() {
   const navigate = useNavigate();
   const userId = 1;
 
+
+
   const Cancel = () => {
     navigate('/')
   }
@@ -32,6 +34,7 @@ const Delete = () => {
 }
 
 const UpdateMovie = (e) => {
+
     e.preventDefault()
     const newMovie = {
         id: movie.id,
@@ -57,6 +60,7 @@ const UpdateMovie = (e) => {
     })
 }
 
+
   return (
     <>
     <form>
@@ -79,6 +83,42 @@ const UpdateMovie = (e) => {
                        type="text"
                        className="form-control"
                        value={movie.comments}
+                />
+            </div>
+        </fieldset>
+        <fieldset>
+            <div className="form-group">
+               <label>WATCHED : 
+               </label>
+                <input 
+                    onChange={
+                        (e) => {
+                            const copy = {... movie}
+                            copy.watched = e.target.checked
+                            setMovie(copy)
+                           }}
+                       required autoFocus
+                       type="checkbox"
+                       className="form-control"
+                       checked={movie.watched}
+                />
+            </div>
+        </fieldset>
+        <fieldset>
+            <div className="form-group">
+               <label>FAVORITE : 
+               </label>
+                <input 
+                    onChange={
+                       (e) => {
+                        const copy = {... movie}
+                        copy.favorite = e.target.value
+                        setMovie(copy)
+                       }}
+                       required autoFocus
+                       type="checkbox"
+                       className="form-control"
+                       checked={movie.favorite}
                 />
             </div>
         </fieldset>
