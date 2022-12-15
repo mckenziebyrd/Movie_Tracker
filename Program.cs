@@ -12,7 +12,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<IUserRepository, UserRepository>();
 builder.Services.AddTransient<IMovieRepository, MovieRepository>();
-builder.Services.AddHttpClient<IMovieService, MovieService>();
+builder.Services.AddHttpClient<IMovieService, MovieService>(); 
+builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
+{
+    builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
+}));
+
+
 
 var app = builder.Build();
 
@@ -22,6 +28,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("corsapp");
 
 app.UseHttpsRedirection();
 
