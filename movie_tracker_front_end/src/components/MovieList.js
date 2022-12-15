@@ -33,8 +33,10 @@ function MovieList(props) {
       poster: movie.Poster,
       comments: "",
     };
-    AddToLibary(newMovie);
-    console.log(newMovie)
+  
+         AddToLibary(newMovie);
+    
+ 
   };
 
   return (
