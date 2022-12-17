@@ -1,13 +1,14 @@
 import React  from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
-
+import { useNavigate } from 'react-router-dom'
 import './Pages.css'
 import { Link } from 'react-router-dom'
 
 
 function Home() {
   const [MovieLibrary, setMovieLibrary] = useState([]);
+  const navigate = useNavigate();
   
   useEffect(() => {
     fetch(
@@ -34,6 +35,8 @@ function Home() {
   return (
    <>
    <h1>MOVIE LIBRARY HOME</h1>
+   <button
+        onClick={()=> navigate('./search')}>SEARCH</button>
     <div className='movie-app'>
         
        
