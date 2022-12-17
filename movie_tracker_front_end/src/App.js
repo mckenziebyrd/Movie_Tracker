@@ -30,10 +30,7 @@ function App() {
     getMovieRequest(searchValue);
   }, [searchValue]);
 
-  const AddFavoriteMovie = (movie) => {
-    const newFavoriteList = [...favorites, movie];
-    setFavorites(newFavoriteList);
-  };
+
 
   return (
     <div>
