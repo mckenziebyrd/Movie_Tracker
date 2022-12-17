@@ -112,7 +112,7 @@ const UpdateMovie = (e) => {
                     onChange={
                        (e) => {
                         const copy = {... movie}
-                        copy.favorite = e.target.value
+                        copy.favorite = e.target.checked
                         setMovie(copy)
                        }}
                        required autoFocus

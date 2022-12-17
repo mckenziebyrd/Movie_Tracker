@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./MovieList.css";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function MovieList(props) {
   const [title, setTitle] = useState("");
@@ -9,6 +9,7 @@ function MovieList(props) {
   const [favorite, setFavorites] = useState("");
   const [poster, setPoster] = useState("");
   const comments = []
+  const navigate = useNavigate();
 
   const AddToLibary = (movie) => {
     const fetchOptions = {
@@ -35,8 +36,7 @@ function MovieList(props) {
     };
   
          AddToLibary(newMovie);
-    
- 
+          window.alert("Added to Library")
   };
 
   return (

@@ -1,7 +1,7 @@
 import React  from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
-
+import { Link } from 'react-router-dom'
 import './Pages.css'
 
 
@@ -43,6 +43,7 @@ function Favorites() {
                     <p>COMMENTS : {movie.comments}</p>
                    <p>{movie.watched == 1 ? "WATCHED" : "NOT WATCHED YET"}</p>
                     <p>{movie.favorite == 1 ? "FAVORITE" : ""}</p>
+                    <Link to={`/movie/${movie.id}`}>EDIT</Link>
                 </div>
               )
             })}
